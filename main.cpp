@@ -15,12 +15,12 @@ struct user
     string feedback_message[size];
     string feedback_type[size];
     int priority[size];
-    int feedback_count = 0;   //feedback count per user and max 10 per user
+    int feedback_count = 0; // feedback count per user and max 10 per user
 };
 
 const string admin_passkey = "admin";
 
-user feedbacks[1000];      //array of struct
+user feedbacks[1000]; // array of struct
 int feedback_index = 0;
 
 void save_data_to_file()
@@ -145,7 +145,7 @@ void menu()
         cout << "1.Registeration\t2.Login\t\t";
         cout << "\033[31m3.Exit\033[0m\n\n";
         cout << "=> ";
-        cin >> choice;     //for +menu   
+        cin >> choice; // for +menu
         cin.ignore();
         if (choice == 1)
         {
@@ -156,7 +156,7 @@ void menu()
         {
             cout << "\n\n===================================\n\n";
             cout << "Login as:\n\n [1] User\n [2] Admin\n\n=>";
-            cin >> sec_choice;    //for login
+            cin >> sec_choice; // for login
             if (sec_choice == 1)
             {
                 login();
@@ -202,7 +202,7 @@ void registration()
         do
         {
 
-            cout << "Name: ";          
+            cout << "Name: ";
             getline(cin, fb.username);
             if (fb.username.empty())
             {
@@ -219,7 +219,7 @@ void registration()
         for (int i = 0; i < feedback_index; i++)
         {
 
-            if (fb.username == feedbacks[i].username)     //if the user exists before
+            if (fb.username == feedbacks[i].username) // if the user exists before
             {
                 found = true;
                 cout << "\n\033[31m** This username already exists ,please try another one...\033[0m\n";
@@ -232,7 +232,7 @@ void registration()
     cout << "\n\033[1;32mregistration has been approved <3\033[0m \n\n";
     system("pause");
 
-    feedback_form(fb);   //send fb from regist for feedback form
+    feedback_form(fb); // send fb from regist for feedback form
     save_data_to_file();
 }
 
@@ -591,8 +591,8 @@ void prioritization()
                         continue;
                     }
 
-                    if (feedbacks[i].feedback_message[j] == feedbacks[k].feedback_message[l]&&
-                        feedbacks[i].feedback_type[j]==feedbacks[k].feedback_type[l])
+                    if (feedbacks[i].feedback_message[j] == feedbacks[k].feedback_message[l] &&
+                        feedbacks[i].feedback_type[j] == feedbacks[k].feedback_type[l])
                     {
                         count++;
                     }
